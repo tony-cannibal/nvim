@@ -30,8 +30,7 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
-vim.opt.scrolloff = 8 
+vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-
-
-
+vim.opt.list = true
+vim.opt.listchars:append('tab:>')
