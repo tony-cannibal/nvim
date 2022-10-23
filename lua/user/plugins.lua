@@ -63,6 +63,8 @@ return packer.startup(function(use)
 	use("folke/tokyonight.nvim")
 	use("lunarvim/darkplus.nvim")
   use("gruvbox-community/gruvbox")
+  use("sainnhe/everforest")
+  
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
 	use("hrsh7th/cmp-buffer") -- buffer completions

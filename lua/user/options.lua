@@ -32,5 +32,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-vim.opt.list = true
-vim.opt.listchars:append('tab:>')
+vim.opt.syntax = "on"
