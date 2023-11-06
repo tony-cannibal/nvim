@@ -1,5 +1,5 @@
 local conditions = require("heirline.conditions")
--- local utils = require("heirline.utils")
+local utils = require("heirline.utils")
 local colors = require("heirline.colors.gruvbox")
 -- local colors = {
 --     bright_bg = utils.get_highlight("Folded").bg,
