@@ -17,8 +17,9 @@ local statusline = {
     { ViMode,
         { Diagnostics, Git, hl = { bg = colors.bg_light } }, { Space, Filename, Space, hl = { bg = colors.bg } } },
     { Align, hl = { bg = colors.bg_dark } },
-    { { Treesitter,  LSPActive, hl = { bg = colors.bg } }, { Fileutils.FileType, hl = { bg = colors.bg_light } },
-        { Location.Ruler } }
+    { { Treesitter,      LSPActive, hl = { bg = colors.bg } }, { Fileutils.FileType, hl = { bg = colors.bg_light } },
+        { Location.Ruler },
+        { Location.ScrollBar } }
 }
 
 return statusline

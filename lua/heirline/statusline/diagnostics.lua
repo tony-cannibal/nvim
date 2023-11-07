@@ -50,7 +50,7 @@ local Diagnostics = {
         hl = { fg = colors.blue },
     },
     {
-        provider = "] ",
+        provider = "]",
     }
 }
 
