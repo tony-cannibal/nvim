@@ -2,13 +2,14 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 local FileNameBlock = require("heirline.statusline.filename")
 local Space = { provider = " " }
+local colors = require("heirline.colors.gruvbox")
 
 
 local FileType = {
     provider = function()
         return string.upper(vim.bo.filetype)
     end,
-    hl = { fg = utils.get_highlight("Type").fg, bold = true },
+    hl = { fg = colors.bg_darker, bold = true },
 }
 
 local TerminalName = {
@@ -18,7 +19,7 @@ local TerminalName = {
         local tname, _ = vim.api.nvim_buf_get_name(0):gsub(".*:", "")
         return " " .. tname
     end,
-    hl = { fg = "blue", bold = true },
+    hl = { fg = colors.bg_darker, bold = true },
 }
 
 local WinBars = {
@@ -27,7 +28,7 @@ local WinBars = {
         condition = function()
             return conditions.buffer_matches({ buftype = { "terminal" } })
         end,
-        utils.surround({ "", "" }, "dark_red", {
+        utils.surround({ "", "" }, colors.grey, {
             FileType,
             Space,
             TerminalName,
@@ -37,11 +38,12 @@ local WinBars = {
         condition = function()
             return not conditions.is_active()
         end,
-        utils.surround({ "", "" }, "#000000", { hl = { fg = "gray", force = true }, FileNameBlock }),
+        utils.surround({ "", "" }, colors.bg, { hl = { fg = "gray", force = true }, FileNameBlock }),
+        hl = { bg = colors.bg },
     },
     -- A winbar for regular files
-    utils.surround({ "", "" }, "#000000", FileNameBlock),
-    hl = { bg = "#3c3836" }
+    utils.surround({ "", "" }, colors.blue, { hl = { fg = colors.bg_darker, force = true }, FileNameBlock }),
+    hl = { bg = colors.bg_darker }
 }
 
 return WinBars
