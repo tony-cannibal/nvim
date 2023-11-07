@@ -9,7 +9,7 @@ vim.g.colorscheme = colors[1]
 vim.g.transparency = false
 vim.g.colored = true
 
-vim.g.error_icon = " "
-vim.g.warn_icon = " "
-vim.g.info_icon = " "
-vim.g.hint_icon = " "
+vim.g.error_icon = ""
+vim.g.warn_icon = ""
+vim.g.info_icon = ""
+vim.g.hint_icon = ""

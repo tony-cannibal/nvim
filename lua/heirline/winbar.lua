@@ -42,10 +42,10 @@ local WinBars = {
         hl = { bg = colors.bg },
     },
     -- A winbar for regular files
-    condition = function()
-        local win_amount = #vim.api.nvim_tabpage_list_wins(0)
-        return win_amount > 1
-    end,
+    -- condition = function()
+    --     local win_amount = #vim.api.nvim_tabpage_list_wins(0)
+    --     return win_amount > 1
+    -- end,
     utils.surround({ "", "" }, colors.blue, { hl = { fg = colors.bg_darker, force = true }, FileNameBlock }),
     hl = { bg = colors.bg_darker }
 }

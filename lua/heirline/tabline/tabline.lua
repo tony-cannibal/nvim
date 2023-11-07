@@ -21,7 +21,7 @@ local FileIcon = {
 
 local TablineBufnr = {
     provider = function(self)
-        return tostring(self.bufnr) .. ". "
+        return " " .. tostring(self.bufnr) .. ". "
     end,
     hl = "blue",
 }
