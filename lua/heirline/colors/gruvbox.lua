@@ -9,6 +9,7 @@ local colors = {
     heavy_red  = '#cc241d',
     green      = '#98971a',
     blue       = '#458588',
+    light_blue = '#83a598',
     yellow     = '#fabd2f',
     orange     = '#fe8019',
     purple     = '#d3869b',

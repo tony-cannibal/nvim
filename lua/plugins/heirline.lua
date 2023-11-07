@@ -11,7 +11,7 @@ return {
     config = function()
         local conditions = require("heirline.conditions")
         local statusline = require("heirline.statusline.statusline")
-        local winbar = require("heirline.winbar")
+        local winbar = require("heirline.winbar.winbar")
         local bufferline = require("heirline.tabline.tabline")
 
         local win_amount = #vim.api.nvim_tabpage_list_wins(0)
