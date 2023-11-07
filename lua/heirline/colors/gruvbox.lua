@@ -25,6 +25,10 @@ local colors = {
     insert_fg  = '#1d2021',
     visual_bg  = '#fe8019',
     visual_fg  = '#1d2021',
+    replace_fg = '#1d2021',
+    replace_bg = '#fb4934',
+    command_fg = '#1d2021',
+    command_bg = '#98971a',
 }
 
 return colors

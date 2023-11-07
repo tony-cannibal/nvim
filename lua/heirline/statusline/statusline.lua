@@ -1,5 +1,3 @@
-require("heirline.colors.placeholder")
-
 local ViMode = require("heirline.statusline.vimode")
 local Git = require("heirline.statusline.git")
 local Location = require("heirline.statusline.ruler")

@@ -1,4 +1,7 @@
 local utils = require("heirline.utils")
+local colors = require("heirline.colors.gruvbox")
+
+local bg = colors.bg_darker
 
 
 local FileIcon = {
@@ -45,7 +48,7 @@ local TablineFileFlags = {
             return vim.api.nvim_buf_get_option(self.bufnr, "modified")
         end,
         provider = "[+]",
-        hl = { fg = "green" },
+        hl = { fg = colors.green },
     },
     {
         condition = function(self)
@@ -59,7 +62,7 @@ local TablineFileFlags = {
                 return ""
             end
         end,
-        hl = { fg = "orange" },
+        hl = { fg = colors.orange },
     },
 }
 
@@ -70,12 +73,14 @@ local TablineFileNameBlock = {
     end,
     hl = function(self)
         if self.is_active then
-            return "TabLineSel"
+            -- return "TabLineSel"
+            return { bg = bg }
             -- why not?
             -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
             --     return { fg = "gray" }
         else
-            return "TabLine"
+            -- return "TabLine"
+            return { bg = colors.bg_light }
         end
     end,
     on_click = {
@@ -126,9 +131,11 @@ local TablineCloseButton = {
 -- The final touch!
 local TablineBufferBlock = utils.surround({ "", "" }, function(self)
     if self.is_active then
-        return utils.get_highlight("TabLineSel").bg
+        -- return utils.get_highlight("TabLineSel").bg
+        return bg
     else
-        return utils.get_highlight("TabLine").bg
+        -- return utils.get_highlight("TabLine").bg
+        return colors.bg_light
     end
 end, { TablineFileNameBlock, TablineCloseButton })
 
@@ -139,5 +146,36 @@ local BufferLine = utils.make_buflist(
     { provider = "", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
 -- by the way, open a lot of buffers and try clicking them ;)
 )
+local TabLineOffset = {
+    condition = function(self)
+        local win = vim.api.nvim_tabpage_list_wins(0)[1]
+        local bufnr = vim.api.nvim_win_get_buf(win)
+        self.winid = win
+
+        if vim.bo[bufnr].filetype == "NvimTree" then
+            self.title = "NvimTree"
+            return true
+            -- elseif vim.bo[bufnr].filetype == "TagBar" then
+            --     ...
+        end
+    end,
+
+    provider = function(self)
+        local title = self.title
+        local width = vim.api.nvim_win_get_width(self.winid)
+        local pad = math.ceil((width - #title) / 2)
+        return string.rep(" ", pad) .. title .. string.rep(" ", pad)
+    end,
+
+    hl = function(self)
+        if vim.api.nvim_get_current_win() == self.winid then
+            return "TablineSel"
+        else
+            return "Tabline"
+        end
+    end,
+}
+
+BufferLine = { TabLineOffset, BufferLine, hl = { bg = '#3c3836' } }
 
 return BufferLine

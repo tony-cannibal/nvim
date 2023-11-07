@@ -16,7 +16,6 @@ local ViMode = {
             no = "O-PENDING",
             nov = "N?",
             noV = "N?",
-
             ["no\22"] = "N?",
             niI = "Ni",
             niR = "Nr",
@@ -74,7 +73,7 @@ local ViMode = {
             S = "purple",
             ["\19"] = "purple",
             R = colors.replace_bg,
-            r = "orange",
+            r = colors.replace_bg,
             ["!"] = "red",
             t = colors.normal_bg,
         }
