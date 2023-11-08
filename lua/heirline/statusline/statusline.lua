@@ -1,3 +1,5 @@
+local conditions = require("heirline.conditions")
+
 local ViMode = require("heirline.statusline.vimode")
 local Git = require("heirline.statusline.git")
 local Location = require("heirline.statusline.ruler")
@@ -10,14 +12,72 @@ local colors = require("heirline.colors.gruvbox")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
+local left_sep = { provider = " " }
+local right_sep = { provider = " | " }
+
+local left_bar = {
+    {
+        ViMode
+    },
+    {
+        Diagnostics,
+        Git,
+        hl = { bg = colors.bg_light }
+    },
+    {
+        Space,
+        Filename,
+        Space,
+        hl = { bg = colors.bg }
+    }
+}
+
+local right_bar = {
+    {
+        {
+            condition = function()
+                local lsp = conditions.lsp_attached()
+                local ts = require "nvim-treesitter.parsers".has_parser()
+                return lsp or ts
+            end,
+            provider = " "
+        },
+        Treesitter,
+        {
+            condition = function()
+                local lsp = conditions.lsp_attached()
+                local ts = require "nvim-treesitter.parsers".has_parser()
+                return lsp or ts
+            end,
+            provider = " | "
+        },
+        LSPActive,
+        {
+            condition = function()
+                local lsp = conditions.lsp_attached()
+                local ts = require "nvim-treesitter.parsers".has_parser()
+                return lsp or ts
+            end,
+            provider = " "
+        },
+        hl = { bg = colors.bg }
+    },
+    {
+        Fileutils.FileType,
+        Location.Ruler,
+        hl = { bg = colors.bg_light }
+    },
+    {
+        Location.ScrollBar
+    }
+}
+
+
 
 local statusline = {
-    { ViMode,
-        { Diagnostics, Git, hl = { bg = colors.bg_light } }, { Space, Filename, Space, hl = { bg = colors.bg } } },
+    left_bar,
     { Align, hl = { bg = colors.bg_dark } },
-    { { Treesitter,      LSPActive, hl = { bg = colors.bg } }, { Fileutils.FileType, hl = { bg = colors.bg_light } },
-        { Location.Ruler },
-        { Location.ScrollBar } }
+    right_bar
 }
 
 return statusline

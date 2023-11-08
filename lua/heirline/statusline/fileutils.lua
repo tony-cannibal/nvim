@@ -1,12 +1,16 @@
 local utils = require("heirline.utils")
+local colors = require("heirline.colors.gruvbox")
 
 local M = {}
 
 M.FileType = {
     provider = function()
-        return " " .. string.upper(vim.bo.filetype) .. " "
+        local type = vim.bo.filetype
+        -- return " " .. string.upper(vim.bo.filetype) .. " "
+        -- return " " .. vim.bo.filetype .. " "
+        return " " .. type:gsub("^%l", string.upper) .. " |"
     end,
-    hl = { fg = utils.get_highlight("Type").fg, bold = true },
+    hl = { fg = colors.fg, bold = true },
 }
 
 M.FileEncoding = {
