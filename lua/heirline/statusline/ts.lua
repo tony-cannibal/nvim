@@ -1,16 +1,23 @@
 local colors = require("heirline.colors.gruvbox")
 
 Treesitter = {
-    provider = function()
-        local icon = ""
-        local status = require "nvim-treesitter.parsers".has_parser()
-        if status == true then
-            return icon .. " TS"
-        else
-            return ""
-        end
+    condition = function()
+        return require "nvim-treesitter.parsers".has_parser()
     end,
-    hl = { fg = colors.fg }
+    provider = " ",
+    {
+        provider = function()
+            -- local icon = " "
+            local status = require "nvim-treesitter.parsers".has_parser()
+            if status == true then
+                return "TS"
+            else
+                return ""
+            end
+        end,
+        hl = { fg = colors.fg }
+    },
+    hl = { fg = colors.blue }
 }
 
 return Treesitter
