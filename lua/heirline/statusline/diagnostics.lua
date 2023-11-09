@@ -66,10 +66,10 @@ local Diagnostics = {
     {
         condition = function(self)
             -- local g = conditions.has_diagnostics
-            local err = self.errors > 0
+            -- local err = self.errors > 0
             local warn = self.warnings > 0
             local info = self.info > 0
-            return conditions.has_diagnostics and err or warn or info
+            return warn or info
         end,
         provider = " "
     },
