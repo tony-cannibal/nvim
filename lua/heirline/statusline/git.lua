@@ -40,11 +40,28 @@ local Git = {
         hl = { fg = colors.git_add },
     },
     {
+        condition = function(self)
+            local add = self.status_dict.added or 0
+            local del = self.status_dict.removed or 0
+            local change = self.status_dict.changed or 0
+            return (del > 0 or change > 0) and add ~= 0
+        end,
+        provider = " "
+    },
+    {
         provider = function(self)
             local count = self.status_dict.removed or 0
             return count > 0 and ("-" .. count)
         end,
         hl = { fg = colors.git_del },
+    },
+    {
+        condition = function(self)
+            local del = self.status_dict.removed or 0
+            local change = self.status_dict.changed or 0
+            return del > 0 and change > 0
+        end,
+        provider = " "
     },
     {
         provider = function(self)
