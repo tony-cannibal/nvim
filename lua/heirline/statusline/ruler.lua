@@ -70,7 +70,7 @@ M.ScrollBar = {
 }
 
 M.Ruler = {
-    provider = " %(%l/%L%):%2c "
+    provider = "%(%l/%L%):%2c"
 }
 
 return M

@@ -12,7 +12,7 @@ local colors = require("heirline.colors.gruvbox")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
-local left_sep = { provider = " " }
+-- local left_sep = { provider = " " }
 local right_sep = { provider = " | " }
 
 local left_bar = {
@@ -21,7 +21,28 @@ local left_bar = {
     },
     {
         Diagnostics,
+        {
+            condition = function()
+                local diagnostics = conditions.has_diagnostics()
+                local gitstatus = conditions.is_git_repo()
+                return diagnostics and gitstatus
+            end,
+            provider = " | "
+            -- provider = " 󰤃 "
+        },
+        {
+            condition = function()
+                return conditions.is_git_repo() and not conditions.has_diagnostics()
+            end,
+            provider = " "
+        },
         Git,
+        {
+            condition = function()
+                return conditions.is_git_repo()
+            end,
+            provider = " "
+        },
         hl = { bg = colors.bg_light }
     },
     {
@@ -50,6 +71,7 @@ local right_bar = {
                 return lsp or ts
             end,
             provider = " | "
+            -- provider = " 󰤃 "
         },
         LSPActive,
         {
@@ -63,8 +85,11 @@ local right_bar = {
         hl = { bg = colors.bg }
     },
     {
+        Space,
         Fileutils.FileType,
+        right_sep,
         Location.Ruler,
+        Space,
         hl = { bg = colors.bg_light }
     },
     {

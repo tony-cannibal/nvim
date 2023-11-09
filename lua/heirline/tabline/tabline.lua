@@ -98,7 +98,10 @@ local TablineFileNameBlock = {
         end,
         name = "heirline_tabline_buffer_callback",
     },
-    TablineBufnr,
+    -- TablineBufnr,
+    {
+        provider = " ",
+    },
     FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
     TablineFileName,
     TablineFileFlags,

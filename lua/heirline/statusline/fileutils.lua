@@ -8,7 +8,7 @@ M.FileType = {
         local type = vim.bo.filetype
         -- return " " .. string.upper(vim.bo.filetype) .. " "
         -- return " " .. vim.bo.filetype .. " "
-        return " " .. type:gsub("^%l", string.upper) .. " |"
+        return type:gsub("^%l", string.upper)
     end,
     hl = { fg = colors.fg, bold = true },
 }
