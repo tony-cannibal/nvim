@@ -12,6 +12,7 @@ local colors = require("heirline.colors.gruvbox")
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
+-- provider = " 󰤃 "
 -- local left_sep = { provider = " " }
 local right_sep = { provider = " | " }
 
@@ -28,7 +29,6 @@ local left_bar = {
                 return diagnostics and gitstatus
             end,
             provider = " | "
-            -- provider = " 󰤃 "
         },
         {
             condition = function()
@@ -68,10 +68,9 @@ local right_bar = {
             condition = function()
                 local lsp = conditions.lsp_attached()
                 local ts = require "nvim-treesitter.parsers".has_parser()
-                return lsp or ts
+                return lsp and ts
             end,
             provider = " | "
-            -- provider = " 󰤃 "
         },
         LSPActive,
         {
