@@ -99,10 +99,27 @@ local right_bar = {
 
 
 
-local statusline = {
+local DefaultStatusline = {
     left_bar,
     { Align, hl = { bg = colors.bg_dark } },
     right_bar
 }
 
-return statusline
+local Disabled = {
+    condition = function()
+        return conditions.buffer_matches({
+            buftype = { "nofile", "prompt", "help", "quickfix" },
+            filetype = { "alpha" },
+        })
+    end,
+    provider = "%=",
+    hl = { bg = colors.bg_darker }
+}
+
+local StatusLines = {
+    fallthrough = false,
+    Disabled,
+    DefaultStatusline
+}
+
+return StatusLines
