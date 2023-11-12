@@ -108,7 +108,7 @@ local Disabled = {
     condition = function()
         return conditions.buffer_matches({
             buftype = { "nofile", "prompt", "help", "quickfix" },
-            filetype = { "alpha" },
+            filetype = { "alpha", "Toggleterm" },
         })
     end,
     provider = "%=",
