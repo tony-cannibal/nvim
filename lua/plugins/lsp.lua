@@ -113,6 +113,8 @@ return {
             end,
             ['tsserver'] = function()
                 lspconfig.tsserver.setup {
+                    on_attach = on_attach,
+                    handlers = handlers,
                     settings = {
                         diagnostics = { ignoredCodes = { 80001 } }
                     }
