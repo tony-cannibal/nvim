@@ -24,7 +24,7 @@ return {
         }
 
         require('mason-lspconfig').setup({
-            ensure_installed = { "lua_ls", "pylsp", "bashls" },
+            ensure_installed = { "lua_ls", "pylsp", "bashls", "tsserver" },
         })
 
         require("lsp-format").setup {}
@@ -109,6 +109,13 @@ return {
                             }
                         },
                     },
+                }
+            end,
+            ['tsserver'] = function()
+                lspconfig.tsserver.setup {
+                    settings = {
+                        diagnostics = { ignoredCodes = { 80001 } }
+                    }
                 }
             end
         })
