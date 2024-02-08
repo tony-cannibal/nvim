@@ -91,6 +91,51 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 keymap("n", "<F7>", "<cmd>ToggleTerm<CR>", opts)
 keymap("t", "<F7>", "<cmd>ToggleTerm<CR>", opts)
 
+
+local function run_curr_python_file()
+    -- Get file name in the current buffer
+    local file_name = vim.api.nvim_buf_get_name(0)
+    -- Get terminal codes for running python file
+    local py_cmd = vim.api.nvim_replace_termcodes("python \"" .. file_name .. "\"<cr>", true, false, true)
+    -- Get terminal codes for key-press sequence to launch toggleterm in LunarVim
+    -- (one may have to use <C-\\> for Ctrl + backslash)
+    local lnrvim_togterm_cmd = vim.api.nvim_replace_termcodes("<F7>", true, false, true)
+    -- Press keys to launch toggleterm in LunarVim
+    -- if check_terminal() == false then
+    vim.api.nvim_feedkeys(lnrvim_togterm_cmd, "m", true)
+    -- end
+    -- Press keys to run python command on current file
+    vim.api.nvim_feedkeys(py_cmd, "t", false)
+end
+
+
+local function run_curr_js_file()
+    local file_name = vim.api.nvim_buf_get_name(0)
+    local py_cmd = vim.api.nvim_replace_termcodes("node \"" .. file_name .. "\"<cr>", true, false, true)
+    local lnrvim_togterm_cmd = vim.api.nvim_replace_termcodes("<F7>", true, false, true)
+
+    vim.api.nvim_feedkeys(lnrvim_togterm_cmd, "m", true)
+    vim.api.nvim_feedkeys(py_cmd, "t", false)
+end
+
+local function run_script()
+    local file_type = vim.bo.filetype
+    if file_type == "python" then
+        run_curr_python_file()
+    elseif file_type == "javascript" then
+        run_curr_js_file()
+    end
+end
+
+
+-- keymap("t", "<F8>", "Lua run_curr_python_file <CR>", opts)
+
+vim.keymap.set({ 'n' }, '<F8>', '', {
+    desc = "Run .py file via toggle term",
+    -- callback = run_curr_python_file
+    callback = run_script
+})
+
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
