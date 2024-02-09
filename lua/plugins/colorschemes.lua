@@ -69,4 +69,5 @@ return {
         end
     },
     { 'maxmx03/solarized.nvim' },
+    { 'kdheepak/monochrome.nvim' }
 }
