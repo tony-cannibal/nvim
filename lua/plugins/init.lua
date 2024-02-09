@@ -12,5 +12,7 @@ return {
             require("scrollbar").setup()
         end
     },
+    -- Lush for theme creation
+    { 'rktjmp/lush.nvim' },
 
 }
