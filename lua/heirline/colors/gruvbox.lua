@@ -30,6 +30,12 @@ local colors = {
     replace_bg = '#fb4934',
     command_fg = '#1d2021',
     command_bg = '#98971a',
+
+
+    section1 = '#504945',
+    section2 = '#3c3836',
+
+    section0 = '#282828',
 }
 
 return colors

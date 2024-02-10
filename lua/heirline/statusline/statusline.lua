@@ -8,7 +8,7 @@ local Diagnostics = require("heirline.statusline.diagnostics")
 local LSPActive = require("heirline.statusline.lsp")
 local Filename = require("heirline.statusline.filename")
 local Treesitter = require("heirline.statusline.ts")
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local Align = { provider = "%=" }
 local Space = { provider = " " }
@@ -43,13 +43,15 @@ local left_bar = {
             end,
             provider = " "
         },
-        hl = { bg = colors.bg_light }
+        -- hl = { bg = colors.bg_light }
+        hl = { bg = colors.section1 }
     },
     {
         Space,
         Filename,
         Space,
-        hl = { bg = colors.bg }
+        hl = { bg = colors.section2 }
+        -- hl = { bg = colors.bg }
     }
 }
 
@@ -81,7 +83,7 @@ local right_bar = {
             end,
             provider = " "
         },
-        hl = { bg = colors.bg }
+        hl = { bg = colors.section2 }
     },
     {
         Space,
@@ -89,7 +91,7 @@ local right_bar = {
         right_sep,
         Location.Ruler,
         Space,
-        hl = { bg = colors.bg_light }
+        hl = { bg = colors.section1 }
     },
     {
         Location.ScrollBar
@@ -100,7 +102,7 @@ local right_bar = {
 
 local DefaultStatusline = {
     left_bar,
-    { Align, hl = { bg = colors.bg_dark } },
+    { Align, hl = { bg = colors.section0 } },
     right_bar
 }
 

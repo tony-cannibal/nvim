@@ -1,6 +1,6 @@
 local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local FileNameBlock = {
     -- let's first set up some attributes needed by this component and it's children
@@ -20,7 +20,8 @@ local FileIcon = {
         return self.icon and (self.icon .. " ")
     end,
     hl = function(self)
-        return { fg = self.icon_color }
+        -- return { fg = self.icon_color }
+        return { fg = colors.blue }
     end
 }
 

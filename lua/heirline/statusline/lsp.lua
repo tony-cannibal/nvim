@@ -1,5 +1,5 @@
 local conditions = require("heirline.conditions")
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local LSPActive = {
     condition = conditions.lsp_attached,
@@ -15,7 +15,7 @@ local LSPActive = {
         -- Or complicate things a bit and get the servers names
         provider  = function()
             local names = {}
-            for i, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
+            for _, server in pairs(vim.lsp.get_active_clients({ bufnr = 0 })) do
                 table.insert(names, server.name)
             end
             -- return " [" .. table.concat(names, " ") .. "]"

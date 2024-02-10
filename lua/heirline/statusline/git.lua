@@ -1,6 +1,6 @@
 local conditions = require("heirline.conditions")
 
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local Git = {
     condition = conditions.is_git_repo,
@@ -10,7 +10,7 @@ local Git = {
         self.has_changes = self.status_dict.added ~= 0 or self.status_dict.removed ~= 0 or self.status_dict.changed ~= 0
     end,
 
-    hl = { fg = colors.orange },
+    hl = { fg = colors.orange, bg = colors.left1 },
 
 
     { -- git branch name
@@ -76,6 +76,7 @@ local Git = {
         end,
         provider = ")",
     },
+    -- hl = { bg = colors.left1 }
 }
 
 return Git

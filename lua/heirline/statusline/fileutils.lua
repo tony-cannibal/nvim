@@ -1,5 +1,5 @@
 local utils = require("heirline.utils")
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local M = {}
 
