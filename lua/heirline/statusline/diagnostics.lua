@@ -81,8 +81,13 @@ local Diagnostics = {
         hl = { fg = colors.blue },
     },
     {
-        provider = "]",
+        provider = "] ",
     }
+    -- {
+    --     condition = conditions.is_git_repo,
+    --     provider = " "
+    -- }
+
 }
 
 

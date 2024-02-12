@@ -2,7 +2,7 @@ local conditions = require("heirline.conditions")
 local utils = require("heirline.utils")
 local FileNameBlock = require("heirline.winbar.filename")
 local Space = { provider = " " }
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 
 local FileType = {

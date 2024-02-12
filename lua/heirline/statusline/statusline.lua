@@ -28,14 +28,14 @@ local left_bar = {
                 local gitstatus = conditions.is_git_repo()
                 return diagnostics and gitstatus
             end,
-            provider = " | "
+            provider = "|"
         },
-        {
-            condition = function()
-                return conditions.is_git_repo() and not conditions.has_diagnostics()
-            end,
-            provider = " "
-        },
+        -- {
+        --     condition = function()
+        --         return conditions.is_git_repo() and not conditions.has_diagnostics()
+        --     end,
+        --     provider = " "
+        -- },
         Git,
         {
             condition = function()

@@ -20,8 +20,8 @@ local FileIcon = {
         return self.icon and (self.icon .. " ")
     end,
     hl = function(self)
-        -- return { fg = self.icon_color }
-        return { fg = colors.blue }
+        return { fg = self.icon_color }
+        -- return { fg = colors.blue }
     end
 }
 
