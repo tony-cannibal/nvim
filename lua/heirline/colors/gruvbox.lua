@@ -31,11 +31,12 @@ local colors = {
     command_fg = '#1d2021',
     command_bg = '#98971a',
 
+    section1   = '#504945',
+    section2   = '#3c3836',
 
-    section1 = '#504945',
-    section2 = '#3c3836',
+    section0   = '#282828',
 
-    section0 = '#282828',
+    tabactive  = '#1d2021'
 }
 
 return colors

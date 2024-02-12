@@ -1,7 +1,6 @@
 local utils = require("heirline.utils")
 local colors = require("heirline.colors." .. vim.g.colorscheme)
 
-local bg = colors.bg_darker
 
 
 local FileIcon = {
@@ -66,6 +65,7 @@ local TablineFileFlags = {
     },
 }
 
+
 -- Here the filename block finally comes together
 local TablineFileNameBlock = {
     init = function(self)
@@ -74,7 +74,7 @@ local TablineFileNameBlock = {
     hl = function(self)
         if self.is_active then
             -- return "TabLineSel"
-            return { bg = bg }
+            return { bg = colors.tabactive }
             -- why not?
             -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
             --     return { fg = "gray" }
@@ -135,7 +135,7 @@ local TablineCloseButton = {
 local TablineBufferBlock = utils.surround({ "", "" }, function(self)
     if self.is_active then
         -- return utils.get_highlight("TabLineSel").bg
-        return bg
+        return colors.tabactive
     else
         -- return utils.get_highlight("TabLine").bg
         return colors.bg_light
@@ -217,6 +217,6 @@ local TabLineOffset = {
     end,
 }
 
-BufferLine = { TabLineOffset, BufferLine, hl = { bg = '#3c3836' } }
+BufferLine = { TabLineOffset, BufferLine, hl = { bg = colors.bg } }
 
 return BufferLine

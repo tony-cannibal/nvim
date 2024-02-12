@@ -35,6 +35,8 @@ local colors = {
     -- section2   = '#475258',
 
     section0   = '#2D353B',
+
+    tabactive  = '#232A2E'
 }
 
 return colors

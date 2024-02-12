@@ -6,7 +6,7 @@ local colors = {
     "tokyonight", -- 5
 }
 
-vim.g.colorscheme = colors[2]
+vim.g.colorscheme = colors[1]
 vim.g.transparency = false
 vim.g.colored = true
 

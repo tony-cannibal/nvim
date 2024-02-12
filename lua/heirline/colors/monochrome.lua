@@ -36,6 +36,8 @@ local colors = {
 
     section0   = '#000000',
 
+    tabactive  = '#1d2021'
+
 }
 
 return colors
