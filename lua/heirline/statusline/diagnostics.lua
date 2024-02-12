@@ -1,5 +1,5 @@
 local conditions = require("heirline.conditions")
-local colors = require("heirline.colors.gruvbox")
+local colors = require("heirline.colors." .. vim.g.colorscheme)
 
 local Diagnostics = {
 
@@ -44,7 +44,8 @@ local Diagnostics = {
         provider = function(self)
             return self.warnings > 0 and (self.warn_icon .. self.warnings)
         end,
-        hl = { fg = colors.yellow },
+        hl = { fg = colors.yellow }
+
     },
     {
         condition = function(self)
@@ -56,23 +57,22 @@ local Diagnostics = {
         end,
         provider = " "
     },
-
     {
         provider = function(self)
             return self.info > 0 and (self.info_icon .. self.info)
         end,
         hl = { fg = colors.green },
     },
-    {
-        condition = function(self)
-            -- local g = conditions.has_diagnostics
-            -- local err = self.errors > 0
-            local warn = self.warnings > 0
-            local info = self.info > 0
-            return warn or info
-        end,
-        provider = " "
-    },
+    -- {
+    --     condition = function(self)
+    --         -- local g = conditions.has_diagnostics
+    --         -- local err = self.errors > 0
+    --         local warn = self.warnings > 0
+    --         local info = self.info > 0
+    --         return warn or info
+    --     end,
+    --     provider = " "
+    -- },
 
     {
         provider = function(self)

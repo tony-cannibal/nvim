@@ -47,5 +47,8 @@ for k, v in pairs(options) do
     vim.opt[k] = v
 end
 
+vim.cmd [[ set fcs=eob:\ ]] -- remove the tilde char in the end of buffer
+
+
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "eol:↴"

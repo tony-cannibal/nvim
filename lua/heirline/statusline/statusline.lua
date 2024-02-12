@@ -102,7 +102,7 @@ local right_bar = {
 
 local DefaultStatusline = {
     left_bar,
-    { Align, hl = { bg = colors.section0 } },
+    { Align, hl = { bg = colors.section0, fg = colors.section0 } },
     right_bar
 }
 

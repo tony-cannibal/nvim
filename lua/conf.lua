@@ -1,12 +1,12 @@
 local colors = {
     "gruvbox",    -- 1
-    "tokyonight", -- 2
-    "everforest", -- 3
-    "solarized",  -- 4
-    "monochrome", -- 5
+    "everforest", -- 2
+    "solarized",  -- 3
+    "monochrome", -- 4
+    "tokyonight", -- 5
 }
 
-vim.g.colorscheme = colors[5]
+vim.g.colorscheme = colors[2]
 vim.g.transparency = true
 vim.g.colored = true
 

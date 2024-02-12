@@ -37,12 +37,14 @@ function ColorPencil(color, trans)
     if color == "monochrome" then
         -- vim.cmd [[highlight IndentBlanklineIndent1 guifg=#555555 gui=nocombine]]
         vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
-        vim.cmd [[highlight Normal guibg=#000000 gui=nocombine]]
+        vim.cmd [[ highlight Normal guibg=#000000 gui=nocombine ]]
     end
 
     if trans == true then
         vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        -- vim.cmd [[ highlight NoneText ctermfg=none guifg=none ]]
     end
 end
 
