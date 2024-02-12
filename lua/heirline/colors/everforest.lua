@@ -26,8 +26,13 @@ local colors = {
     command_bg = '#7FBBB3',
     command_fg = '#2D353B',
 
-    section1   = '#343F44',
-    section2   = '#475258',
+    -- section1   = '#3D484D',
+    -- section2   = '#4F585E',
+
+    section1   = '#4F585E',
+    section2   = '#3D484D',
+
+    -- section2   = '#475258',
 
     section0   = '#2D353B',
 }

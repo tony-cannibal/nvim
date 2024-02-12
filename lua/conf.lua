@@ -7,7 +7,7 @@ local colors = {
 }
 
 vim.g.colorscheme = colors[2]
-vim.g.transparency = true
+vim.g.transparency = false
 vim.g.colored = true
 
 vim.g.error_icon = ""
