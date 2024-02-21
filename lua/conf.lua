@@ -6,8 +6,8 @@ local colors = {
     "tokyonight", -- 5
 }
 
-vim.g.colorscheme = colors[1]
-vim.g.transparency = false
+vim.g.colorscheme = colors[3]
+vim.g.transparency = true
 vim.g.colored = true
 
 vim.g.error_icon = ""
