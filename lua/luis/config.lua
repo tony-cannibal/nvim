@@ -1,5 +1,3 @@
-vim.g.gruvbox_material_background = "medium"
-
 function ColorPencil(color, trans)
 	vim.cmd.colorscheme(color)
 	if trans == true then
@@ -19,7 +17,6 @@ local colorscheme = {
 	"tokyonight",
 	"solarized",
 	"everforest",
-	"gruvbox-material",
 }
 
-ColorPencil(colorscheme[6], true)
+ColorPencil(colorscheme[1], true)
