@@ -1,4 +1,4 @@
-function ColorPencil(color, trans)
+local ColorPencil = function(color, trans)
 	vim.cmd.colorscheme(color)
 	if trans == true then
 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
