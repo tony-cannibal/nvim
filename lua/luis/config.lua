@@ -19,4 +19,4 @@ local colorscheme = {
 	"everforest",
 }
 
-ColorPencil(colorscheme[1], true)
+ColorPencil(colorscheme[5], true)
