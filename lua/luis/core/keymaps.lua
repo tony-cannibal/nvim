@@ -13,6 +13,8 @@ key.set("n", ";", ":", { desc = "Command With Semicolon" })
 key.set("n", "<C-d>", "<C-d>zz", { desc = "Page Down" })
 key.set("n", "<C-u>", "<C-u>zz", { desc = "Page Up" })
 
+key.set("n", "dw", 'vb"_d', { desc = "Delete Word" })
+
 -- Save/Quit
 key.set("n", "<leader>ww", ":w<CR>", { desc = "Save File" })
 key.set("n", "<leader>wa", ":wa<CR>", { desc = "Save All Files" })

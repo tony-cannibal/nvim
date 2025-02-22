@@ -21,6 +21,7 @@ return {
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				cpp = { "clang-format" },
+				bash = { "beautysh" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
