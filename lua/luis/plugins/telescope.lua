@@ -24,7 +24,9 @@ return {
 			},
 		})
 
-		telescope.load_extension("fzf")
+		if vim.fn.has("win32") == 0 then
+			telescope.load_extension("fzf")
+		end
 
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness

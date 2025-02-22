@@ -19,4 +19,8 @@ local colorscheme = {
 	"everforest",
 }
 
+<<<<<<< HEAD
 ColorPencil(colorscheme[4], true)
+=======
+ColorPencil(colorscheme[5], false)
+>>>>>>> abea0f1558ba6baf27733ca73fe4af19048d09a3
