@@ -12,15 +12,12 @@ local ColorPencil = function(color, trans)
 end
 
 local colorscheme = {
-	"gruvbox",
-	"rose-pine-main",
-	"tokyonight",
-	"solarized",
-	"everforest",
+	"gruvbox", -- 1
+	"rose-pine-main", -- 2
+	"tokyonight", -- 3
+	"solarized", -- 4
+	"everforest", -- 5
+	"nord", -- 6
 }
 
-<<<<<<< HEAD
-ColorPencil(colorscheme[4], true)
-=======
-ColorPencil(colorscheme[5], false)
->>>>>>> abea0f1558ba6baf27733ca73fe4af19048d09a3
+ColorPencil(colorscheme[6], true)

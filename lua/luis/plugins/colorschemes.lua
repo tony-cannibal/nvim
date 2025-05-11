@@ -7,6 +7,7 @@ return {
 	},
 	{
 		"rose-pine/neovim",
+		lazy = false,
 		priority = 1000, -- make sure to load this before all the other start plugins
 		name = "rose-pine",
 		config = function()
@@ -18,6 +19,7 @@ return {
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
+		lazy = false,
 		priority = 1000,
 		config = true,
 		opts = function()
@@ -47,5 +49,10 @@ return {
 				-- Your config here
 			})
 		end,
+	},
+	{
+		"shaunsingh/nord.nvim",
+		lazy = false,
+		priority = 1000,
 	},
 }
